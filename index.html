@@ -133,26 +133,21 @@
                                     <div class="about-desc">
                                         <span class="heading-meta">Introduction</span>
                                         <h2 class="colorlib-heading">Problem Statement</h2>
-                                        <p>Financial markets can be volatile and unpredictable, with a lot of different
-                                            factors
-                                            that contribute to financial performance. One of the biggest obstacles in
-                                            financial
-                                            markets is information. As many successful traders can testify, they spend
-                                            most of their time
-                                            conducting research on the industry, which involves reading countless news
-                                            articles and documents.</p>
-                                        <p>One goal for this project was to be able to cut down on the time that would
-                                            be involved in conducting
-                                            financial research by being able to process news headlines and provide some
-                                            sort of representation.
-                                            Another goal was to incorporate aspects of behavioral finance into the
-                                            representation, which for this
-                                            project was sentiment analysis.</p>
-                                        <p>For this project, I used data of top 25 daily headlines from r/WorldNews from
-                                            a time frame of 8/8/2008
-                                            - 7/1/2016 to conduct sentiment analysis use that in conjunction with
-                                            time-series data for the S&P 500
-                                            to train a LSTM neural network to predict volatility.</p>
+                                        <p>Financial markets can be volatile and unpredictable,w ith a lot of different
+                                            factors that contribute to financial performance. One of the biggest obstacles
+                                            in financial markets is obtaining sufficient information. As many successful
+                                            traders testify, they spend most of their time conducting research on the
+                                            industry, which involves reading countless news articles and documents.</p>
+                                        <p>One goal for this project was to be able to cut down on the time that it took to
+                                            conduct financial research by being able to automatically process news
+                                            headlines and generate some sort of representation. Another goal is to
+                                            incorporate aspects of behavioral finance into the representation.</p>
+                                        <p>For this project, I used data of top 25 headlines from r/WorldNews from
+                                            8/8/2008 - 7/1/2016 to conduct sentiment analysis, and time-series data for the
+                                            sae time period on the S&P500. The model evaluated a coefficient of variance
+                                        (CV) to predict volatility within the stock closing price. The model was built through
+                                        a multi-layered LSTM neural network using a 30 day window of data to predict one day
+                                        into the future.</p>
                                     </div>
                                 </div>
                             </div>
@@ -339,7 +334,11 @@
                                              aria-labelledby="headingThree">
                                             <div class="panel-body">
                                                 <p>The first iteration of the model was just with time-series data. The
-													model took a window of 30 days of data to forecast a day in advance.</p>
+													model took a window of 30 days of data to forecast a day in advance.<br><br>
+                                                    The model performed decently well and was able to accurate forecast all
+                                                    of the major peaks in volatility. However, the model is limited in detecting
+                                                    lower bounds of volatility beneath a CV of 0.015, but for the opportunistic
+                                                    trader, the peaks in volatility would be more important to know than the troughs.</p>
                                                 <div class="text-center">
                                                     <p>Model Loss (<em style="color: blue">Train</em>/<em style="color: orange">Test</em>)</p>
                                                     <div id="s_model_loss"></div>
