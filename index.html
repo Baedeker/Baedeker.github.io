@@ -1,10 +1,1281 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exploring Neural Networks and NLP Applications within Financial Markets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Alex Li"/>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="css/flexslider.css">
+    <!-- Flaticons  -->
+    <!--<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">-->
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+
+	<script src="js/model.js"></script>
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+        .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 2px;
+        }
+    </style>
 </head>
 <body>
-    <p>Hello! Just trying to see if this works.</p>
+<div id="colorlib-page">
+    <div class="container-wrap">
+        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
+           aria-expanded="false" aria-controls="navbar"><i></i></a>
+        <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+            <div class="text-center">
+                <h1 id="colorlib-logo"><a href="index.html">Alex Li</a></h1>
+                <span class="position">Business Technology Analyst<br>Deloitte</span>
+            </div>
+            <nav id="colorlib-main-menu" role="navigation" class="navbar">
+                <div id="navbar" class="collapse">
+                    <ul>
+                        <li class="active"><a href="#" data-nav-section="home">Home</a></li>
+                        <li><a href="#" data-nav-section="introduction">Introduction</a></li>
+                        <li><a href="#" data-nav-section="technical_stack">Technical Stack</a></li>
+                        <li><a href="#" data-nav-section="model">Model</a></li>
+                        <li><a href="#" data-nav-section="next_steps">Next Steps</a></li>
+                        <li><a href="#" data-nav-section="contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="colorlib-footer">
+                <p><small>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(String(new Date().getFullYear()));</script>
+                    All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </span>
+                </small></p>
+                <ul>
+                    <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li><a href="#"><i class="icon-twitter2"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram"></i></a></li>
+                    <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        <div id="colorlib-main">
+            <section id="colorlib-hero" class="js-fullheight" data-section="home">
+                <div class="flexslider js-fullheight">
+                    <ul class="slides">
+                        <li style="background-image: url(images/img_bg_1.jpg);"> <!-- TODO: CHANGE PICTURE -->
+                            <div class="overlay"></div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+                                        <div class="slider-text-inner js-fullheight">
+                                            <div class="desc">
+                                                <h3>Exploring Neural Networks and NLP Applications <br>within Financial
+                                                    Markets</h3>
+                                                <h2>Modeling volatility within the S&P 500 using time-series data and sentiment analysis.</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="background-image: url(images/img_bg_2.jpg);"> <!-- TODO: CHANGE PICTURE -->
+                            <div class="overlay"></div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+                                        <div class="slider-text-inner">
+                                            <div class="desc">
+                                                <h3>Exploring Neural Networks and NLP Applications <br>within Financial
+													Markets</h3>
+												<h2>Modeling volatility within the S&P 500 using time-series data and sentiment analysis.</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="colorlib-about" data-section="introduction">
+                <div class="colorlib-narrow-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                                <div class="col-md-12">
+                                    <div class="about-desc">
+                                        <span class="heading-meta">Introduction</span>
+                                        <h2 class="colorlib-heading">Problem Statement</h2>
+                                        <p>Financial markets can be volatile and unpredictable, with a lot of different
+                                            factors
+                                            that contribute to financial performance. One of the biggest obstacles in
+                                            financial
+                                            markets is information. As many successful traders can testify, they spend
+                                            most of their time
+                                            conducting research on the industry, which involves reading countless news
+                                            articles and documents.</p>
+                                        <p>One goal for this project was to be able to cut down on the time that would
+                                            be involved in conducting
+                                            financial research by being able to process news headlines and provide some
+                                            sort of representation.
+                                            Another goal was to incorporate aspects of behavioral finance into the
+                                            representation, which for this
+                                            project was sentiment analysis.</p>
+                                        <p>For this project, I used data of top 25 daily headlines from r/WorldNews from
+                                            a time frame of 8/8/2008
+                                            - 7/1/2016 to conduct sentiment analysis use that in conjunction with
+                                            time-series data for the S&P 500
+                                            to train a LSTM neural network to predict volatility.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ICONS -->
+                            <div class="row">
+                                <div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="services color-1">
+                                        <span class="icon2"><i class="icon-bulb"></i></span>
+                                        <h3>Data</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                                    <div class="services color-2">
+                                        <span class="icon2"><i class="icon-globe-outline"></i></span>
+                                        <h3>Evaluation</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
+                                    <div class="services color-3">
+                                        <span class="icon2"><i class="icon-data"></i></span>
+                                        <h3>Sentiment</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
+                                    <div class="services color-4">
+                                        <span class="icon2"><i class="icon-phone3"></i></span>
+                                        <h3>Model</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="colorlib-services" data-section="technical_stack">
+                <div class="colorlib-narrow-content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+                             data-animate-effect="fadeInLeft">
+                            <span class="heading-meta">Technical Stack</span>
+                            <h2 class="colorlib-heading">Technologies Used</h2>
+                        </div>
+                    </div>
+                    <div class="row row-pt-md">
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services color-1">
+								<span class="icon">
+									<i class="icon-bulb"></i>
+								</span>
+                                <div class="desc">
+                                    <h3>TensorFlow</h3>
+                                    <p>Model Training</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services color-2">
+								<span class="icon">
+									<i class="icon-data"></i>
+								</span>
+                                <div class="desc">
+                                    <h3>VADER</h3>
+                                    <p>Sentiment Analysis</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services color-3">
+								<span class="icon">
+									<i class="icon-phone3"></i>
+								</span>
+                                <div class="desc">
+                                    <h3>KERAS</h3>
+                                    <p>Neural Networks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services color-4">
+								<span class="icon">
+									<i class="icon-layers2"></i>
+								</span>
+                                <div class="desc">
+                                    <h3>Python</h3>
+                                    <p>Framework</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services color-5">
+								<span class="icon">
+									<i class="icon-data"></i>
+								</span>
+                                <div class="desc">
+                                    <h3>HTML</h3>
+                                    <p>Website Development</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services color-6">
+								<span class="icon">
+									<i class="icon-phone3"></i>
+								</span>
+                                <div class="desc">
+                                    <h3>CSS/JS/d3js</h3>
+                                    <p>Website Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="colorlib-education" data-section="model">
+                <div class="colorlib-narrow-content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+                             data-animate-effect="fadeInLeft">
+                            <span class="heading-meta">Model</span>
+                            <h2 class="colorlib-heading animate-box">Model Iterations</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="fancy-collapse-panel">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="headingOne">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+												   href="#collapseOne" aria-expanded="true"
+												   aria-controls="collapseOne">
+													Model Process Walkthrough
+												</a>
+											</h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+											 aria-labelledby="headingOne">
+											<div class="panel-body">
+												<p>From the whole dataset, a training and test partition was created, with
+													8/8/2008 until 12/31/2014 consisting the training set, and everything
+													after 12/31/2014 to be the testing set. A LSTM neural network was used to
+													forecast the volatility in close prices, which was measured as the coefficient
+													of variance.</p>
+												<p>Walking through the data pre-processing up through model results, first we'll select
+													a date range. Ranges shown below accommodates the 30-day window used in the model: </p>
+												<select id="date_dropdown" onchange = update_table()>
+													<option disabled selected value> -- Select an Option -- </option>
+													<option value="1">2/24/2016-4/7/2016</option>
+													<option value="2">3/23/2016-5/5/2016</option>
+													<option value="3">5/6/2016-6/20/2016</option>
+												</select><br><br>
+												<p>A sample of the headlines available from the selected date range:</p>
+												<table>
+													<tr>
+                                                        <th><div style='width: 500px;'>Headline&nbsp;&nbsp;&nbsp;</div></th>
+                                                        <th><div style='width: 100px;'>Sentiment Score</div></th>
+													</tr>
+													<tr id="row1"></tr>
+													<tr id="row2"></tr>
+													<tr id="row3"></tr>
+													<tr id="row4"></tr>
+													<tr id="row5"></tr>
+												</table><br>
+												<p>Actual Coefficient of Variance of S&P 500: <strong id="act_cv"></strong><br>
+												Predicted Coefficient of Variance of S&P 500 (Time-Series):
+													<strong id="pred_1_cv"></strong><br>
+												Predicted Coefficient of Variance of S&P 500 (Time-Series and Sentiment):
+													<strong id="pred_2_cv"></strong></p>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                                                   aria-expanded="false" aria-controls="collapseThree">
+                                                    Modeling S&P500 Volatility: Time-Series Data
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                             aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <p>The first iteration of the model was just with time-series data. The
+													model took a window of 30 days of data to forecast a day in advance.</p>
+                                                <div class="text-center">
+                                                    <p>Model Loss (<em style="color: blue">Train</em>/<em style="color: orange">Test</em>)</p>
+                                                    <div id="s_model_loss"></div>
+                                                    <script>
+                                                        let margin = {top: 20, right: 20, bottom: 40, left: 60},
+                                                            width = 700 - margin.left - margin.right,
+                                                            height = 400 - margin.top - margin.bottom;
+                                                        let x = d3.scaleLinear().range([0, width]);
+                                                        let y = d3.scaleLinear().range([height, 0]);
+                                                        // define the 1st line
+                                                        let valueline = d3.line()
+                                                            .x(function(d) { return x(d.Tick); })
+                                                            .y(function(d) { return y(d.Train_Loss); });
+
+                                                        // define the 2nd line
+                                                        let valueline2 = d3.line()
+                                                            .x(function(d) { return x(d.Tick); })
+                                                            .y(function(d) { return y(d.Test_Loss); });
+
+                                                        // append the svg obgect to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let svg = d3.select("#s_model_loss").append("svg")
+                                                            .attr("width", width + margin.left + margin.right)
+                                                            .attr("height", height + margin.top + margin.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + margin.left + "," + margin.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("s_model_loss_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Train_Loss = +d.Train_Loss;
+                                                                d.Test_Loss = +d.Test_Loss;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            x.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            y.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Train_Loss, d.Test_Loss);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            svg.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "orange")
+                                                                .attr("data-legend", "Test")
+                                                                .attr("d", valueline);
+
+                                                            // Add the valueline2 path.
+                                                            svg.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "blue")
+                                                                .attr("data-legend", "Train")
+                                                                .attr("d", valueline2);
+
+                                                            // Add the X Axis
+                                                            svg.append("g")
+                                                                .attr("transform", "translate(0," + height + ")")
+                                                                .call(d3.axisBottom(x));
+
+                                                            // text label for the x axis
+                                                            svg.append("text")
+                                                                .attr("transform",
+                                                                    "translate(" + (width/2) + " ," +
+                                                                    (height + margin.top + 10) + ")")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Epoch");
+
+                                                            // Add the Y Axis
+                                                            svg.append("g")
+                                                                .call(d3.axisLeft(y));
+
+                                                            // text label for the y axis
+                                                            svg.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - margin.left)
+                                                                .attr("x",0 - (height / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Loss");
+
+                                                            svg.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                    <p>Model Performance (<em style="color: black">Original</em>/<em style="color: deepskyblue">Prediction</em>)</p>
+                                                    <div id="s_model_pred"></div>
+                                                    <script>
+                                                        let margin_pred = {top: 20, right: 20, bottom: 30, left: 60},
+                                                            width_pred = 700 - margin_pred.left - margin_pred.right,
+                                                            height_pred = 400 - margin_pred.top - margin_pred.bottom;
+                                                        let x_pred = d3.scaleLinear().range([0, width_pred]);
+                                                        let y_pred = d3.scaleLinear().range([height_pred, 0]);
+                                                        // define the 1st line
+                                                        let valueline_pred = d3.line()
+                                                            .x(function(d) { return x_pred(d.Tick); })
+                                                            .y(function(d) { return y_pred(d.Orig); });
+
+                                                        // define the 2nd line
+                                                        let valueline2_pred = d3.line()
+                                                            .x(function(d) { return x_pred(d.Tick); })
+                                                            .y(function(d) { return y_pred(d.Pred); });
+
+                                                        // append the svg obgect to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let svg_pred = d3.select("#s_model_pred").append("svg")
+                                                            .attr("width", width_pred + margin_pred.left + margin_pred.right)
+                                                            .attr("height", height_pred + margin_pred.top + margin_pred.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + margin_pred.left + "," + margin_pred.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("s_model_pred_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Orig = +d.Orig;
+                                                                d.Pred = +d.Pred;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            x_pred.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            y_pred.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Orig, d.Pred);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            svg_pred.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "black")
+                                                                .attr("d", valueline_pred);
+
+                                                            // Add the valueline2 path.
+                                                            svg_pred.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "deepskyblue")
+                                                                .attr("d", valueline2_pred);
+
+                                                            // Add the X Axis
+                                                            svg_pred.append("g")
+                                                                .attr("transform", "translate(0," + height_pred + ")")
+                                                                .call(d3.axisBottom(x_pred));
+
+                                                            // Add the Y Axis
+                                                            svg_pred.append("g")
+                                                                .call(d3.axisLeft(y_pred));
+
+                                                            // text label for the y axis
+                                                            svg_pred.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - margin_pred.left)
+                                                                .attr("x",0 - (height_pred / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Coefficient of Variance");
+
+                                                            svg_pred.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <ul>
+                                                    <li>3 stacked LSTM layers</li>
+                                                    <li>1000 epochs</li>
+                                                    <li>Root Mean Squared Error (RMSE): 0.0043</li>
+                                                    <li>Mean Absolute Error (MAE): 0.0036</li>
+                                                </ul>
+                                                <p>Measuring performance against more recent data from 7/1/2016, where the testing dataset
+                                                    left off until present day.</p>
+                                                <div class="text-center">
+                                                    <p>Model Performance (<em style="color: black">Original</em>/<em style="color: deepskyblue">Prediction</em>)</p>
+                                                    <div id="ns_model_pred"></div>
+                                                    <script>
+                                                        let ns_margin = {top: 20, right: 20, bottom: 30, left: 60},
+                                                            ns_width = 700 - ns_margin.left - ns_margin.right,
+                                                            ns_height = 400 - ns_margin.top - ns_margin.bottom;
+                                                        let ns_x = d3.scaleLinear().range([0, ns_width]);
+                                                        let ns_y = d3.scaleLinear().range([ns_height, 0]);
+                                                        // define the 1st line
+                                                        let v1_ns = d3.line()
+                                                            .x(function(d) { return ns_x(d.Tick); })
+                                                            .y(function(d) { return ns_y(d.Orig); });
+
+                                                        // define the 2nd line
+                                                        let v2_ns = d3.line()
+                                                            .x(function(d) { return ns_x(d.Tick); })
+                                                            .y(function(d) { return ns_y(d.Pred); });
+
+                                                        // append the svg obgect to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let ns_svg = d3.select("#ns_model_pred").append("svg")
+                                                            .attr("width", ns_width + ns_margin.left + ns_margin.right)
+                                                            .attr("height", ns_height + ns_margin.top + ns_margin.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + ns_margin.left + "," + ns_margin.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("ns_model_pred_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Orig = +d.Orig;
+                                                                d.Pred = +d.Pred;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            ns_x.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            ns_y.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Orig, d.Pred);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            ns_svg.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "black")
+                                                                .attr("d", v1_ns);
+
+                                                            // Add the valueline2 path.
+                                                            ns_svg.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "deepskyblue")
+                                                                .attr("d", v2_ns);
+
+                                                            // Add the X Axis
+                                                            ns_svg.append("g")
+                                                                .attr("transform", "translate(0," + ns_height + ")")
+                                                                .call(d3.axisBottom(ns_x));
+
+                                                            // Add the Y Axis
+                                                            ns_svg.append("g")
+                                                                .call(d3.axisLeft(ns_y));
+
+                                                            // text label for the y axis
+                                                            ns_svg.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - ns_margin.left)
+                                                                .attr("x",0 - (ns_height / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Coefficient of Variance");
+
+                                                            ns_svg.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <ul>
+                                                    <li>Root Mean Squared Error (RMSE): 0.0052</li>
+                                                    <li>Mean Absolute Error (MAE): 0.0044</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseTwo" aria-expanded="false"
+                                                   aria-controls="collapseTwo">
+													Modeling S&P500 Volatility: Time-Series and Sentiment Data
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                             aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <p>Building onto the time-series layer, I added another input layer with
+													averages of daily headline sentiments. Sentiment polarity was measured using
+													VADER, and then the average was taken across a 30 day window to
+													predict if the S&P 500 would move up or down. Results were not as great, as
+													VADER is limited in its ability to measure sentiment of articles/headlines as it is
+													more ambiguous than measuring sentiment in reviews. News headlines can be ambiguous,
+													which can cause results to be more inaccurate. An additional layer of text classification
+													could be helpful in identifying relevant headlines to measure the sentiment as well.</p>
+                                                <div class="text-center">
+                                                    <p>Model Loss (<em style="color: blue">Train</em>/<em style="color: orange">Test</em>)</p>
+                                                    <div id="d_model_loss"></div>
+                                                    <script>
+                                                        let m_d_loss = {top: 20, right: 20, bottom: 40, left: 60},
+                                                            w_d_loss = 700 - m_d_loss.left - m_d_loss.right,
+                                                            h_d_loss = 400 - m_d_loss.top - m_d_loss.bottom;
+                                                        let x_d_loss = d3.scaleLinear().range([0, w_d_loss]);
+                                                        let y_d_loss = d3.scaleLinear().range([h_d_loss, 0]);
+                                                        // define the 1st line
+                                                        let v1_d_loss = d3.line()
+                                                            .x(function(d) { return x_d_loss(d.Tick); })
+                                                            .y(function(d) { return y_d_loss(d.Train_Loss); });
+
+                                                        // define the 2nd line
+                                                        let v2_d_loss = d3.line()
+                                                            .x(function(d) { return x_d_loss(d.Tick); })
+                                                            .y(function(d) { return y_d_loss(d.Test_Loss); });
+
+                                                        // append the svg object to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let svg_d_loss = d3.select("#d_model_loss").append("svg")
+                                                            .attr("width", w_d_loss + m_d_loss.left + m_d_loss.right)
+                                                            .attr("height", h_d_loss + m_d_loss.top + m_d_loss.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + m_d_loss.left + "," + m_d_loss.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("d_model_loss_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Train_Loss = +d.Train_Loss;
+                                                                d.Test_Loss = +d.Test_Loss;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            x_d_loss.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            y_d_loss.domain([0.135, d3.max(data, function (d) {
+                                                                return Math.max(d.Train_Loss, d.Test_Loss);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            svg_d_loss.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "orange")
+                                                                .attr("data-legend", "Test")
+                                                                .attr("d", v1_d_loss);
+
+                                                            // Add the valueline2 path.
+                                                            svg_d_loss.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "blue")
+                                                                .attr("data-legend", "Train")
+                                                                .attr("d", v2_d_loss);
+
+                                                            // Add the X Axis
+                                                            svg_d_loss.append("g")
+                                                                .attr("transform", "translate(0," + h_d_loss + ")")
+                                                                .call(d3.axisBottom(x_d_loss));
+
+                                                            // text label for the x axis
+                                                            svg_d_loss.append("text")
+                                                                .attr("transform",
+                                                                    "translate(" + (w_d_loss/2) + " ," +
+                                                                    (h_d_loss + m_d_loss.top + 10) + ")")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Epoch");
+
+                                                            // Add the Y Axis
+                                                            svg_d_loss.append("g")
+                                                                .call(d3.axisLeft(y_d_loss));
+
+                                                            // text label for the y axis
+                                                            svg_d_loss.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - m_d_loss.left)
+                                                                .attr("x",0 - (h_d_loss / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Loss");
+
+                                                            svg_d_loss.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                    <p>Model Performance (<em style="color: black">Original</em>/<em style="color: deepskyblue">Prediction</em>)</p>
+                                                    <div id="d_model_pred"></div>
+                                                    <script>
+                                                        let m_d_pred = {top: 20, right: 20, bottom: 30, left: 60},
+                                                            w_d_pred = 700 - m_d_pred.left - m_d_pred.right,
+                                                            h_d_pred = 400 - m_d_pred.top - m_d_pred.bottom;
+                                                        let x_d_pred = d3.scaleLinear().range([0, w_d_pred]);
+                                                        let y_d_pred = d3.scaleLinear().range([h_d_pred, 0]);
+                                                        // define the 1st line
+                                                        let v1_d_pred = d3.line()
+                                                            .x(function(d) { return x_d_pred(d.Tick); })
+                                                            .y(function(d) { return y_d_pred(d.Orig); });
+
+                                                        // define the 2nd line
+                                                        let v2_d_pred = d3.line()
+                                                            .x(function(d) { return x_d_pred(d.Tick); })
+                                                            .y(function(d) { return y_d_pred(d.Pred); });
+
+                                                        // append the svg obgect to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let svg_d_pred = d3.select("#d_model_pred").append("svg")
+                                                            .attr("width", w_d_pred + m_d_pred.left + m_d_pred.right)
+                                                            .attr("height", h_d_pred + m_d_pred.top + m_d_pred.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + m_d_pred.left + "," + m_d_pred.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("d_model_pred_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Orig = +d.Orig;
+                                                                d.Pred = +d.Pred;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            x_d_pred.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            y_d_pred.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Orig, d.Pred);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            svg_d_pred.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "black")
+                                                                .attr("d", v1_d_pred);
+
+                                                            // Add the valueline2 path.
+                                                            svg_d_pred.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "deepskyblue")
+                                                                .attr("d", v2_d_pred);
+
+                                                            // Add the X Axis
+                                                            svg_d_pred.append("g")
+                                                                .attr("transform", "translate(0," + h_d_pred + ")")
+                                                                .call(d3.axisBottom(x_d_pred));
+
+                                                            // Add the Y Axis
+                                                            svg_d_pred.append("g")
+                                                                .call(d3.axisLeft(y_d_pred));
+
+                                                            // text label for the y axis
+                                                            svg_d_pred.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - m_d_pred.left)
+                                                                .attr("x",0 - (h_d_pred / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Coefficient of Variance");
+
+                                                            svg_d_pred.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <ul>
+                                                    <li>Output consisted of two Dense layers, one classification and one regression.</li>
+                                                    <li>4 concatenated LSTM layers</li>
+                                                    <li>300 epochs</li>
+                                                    <li>A dropout layer was added to prevent over-fitting.</li>
+                                                    <li>Root Mean Squared Error (RMSE): 0.0103</li>
+                                                    <li>Mean Absolute Error (MAE): 0.0094</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseFour" aria-expanded="false"
+                                                   aria-controls="collapseFour">
+                                                    Modeling S&P500 Volume Volatility: Time-Series Data
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                             aria-labelledby="headingFour">
+                                            <div class="panel-body">
+                                                <p>Another perspective looking at the volatility within the trading
+                                                    volume. Typically large volumes of stock are traded when there's an anticipated
+                                                    movement in the stock prices, which also functions as an indicator of volatility within prices.
+                                                    </p>
+                                                <div class="text-center">
+                                                    <p>Model Loss (<em style="color: blue">Train</em>/<em style="color: orange">Test</em>)</p>
+                                                    <div id="v_model_loss"></div>
+                                                    <script>
+                                                        let m_v_loss = {top: 20, right: 20, bottom: 40, left: 60},
+                                                            w_v_loss = 700 - m_v_loss.left - m_v_loss.right,
+                                                            h_v_loss = 400 - m_v_loss.top - m_v_loss.bottom;
+                                                        let x_v_loss = d3.scaleLinear().range([0, w_v_loss]);
+                                                        let y_v_loss = d3.scaleLinear().range([h_v_loss, 0]);
+                                                        // define the 1st line
+                                                        let v1_v_loss = d3.line()
+                                                            .x(function(d) { return x_v_loss(d.Tick); })
+                                                            .y(function(d) { return y_v_loss(d.Train_Loss); });
+
+                                                        // define the 2nd line
+                                                        let v2_v_loss = d3.line()
+                                                            .x(function(d) { return x_v_loss(d.Tick); })
+                                                            .y(function(d) { return y_v_loss(d.Test_Loss); });
+
+                                                        // append the svg object to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let svg_v_loss = d3.select("#v_model_loss").append("svg")
+                                                            .attr("width", w_v_loss + m_v_loss.left + m_v_loss.right)
+                                                            .attr("height", h_v_loss + m_v_loss.top + m_v_loss.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + m_v_loss.left + "," + m_v_loss.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("v_model_loss_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Train_Loss = +d.Train_Loss;
+                                                                d.Test_Loss = +d.Test_Loss;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            x_v_loss.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            y_v_loss.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Train_Loss, d.Test_Loss);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            svg_v_loss.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "orange")
+                                                                .attr("data-legend", "Test")
+                                                                .attr("d", v1_v_loss);
+
+                                                            // Add the valueline2 path.
+                                                            svg_v_loss.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "blue")
+                                                                .attr("data-legend", "Train")
+                                                                .attr("d", v2_v_loss);
+
+                                                            // Add the X Axis
+                                                            svg_v_loss.append("g")
+                                                                .attr("transform", "translate(0," + h_v_loss + ")")
+                                                                .call(d3.axisBottom(x_v_loss));
+
+                                                            // text label for the x axis
+                                                            svg_v_loss.append("text")
+                                                                .attr("transform",
+                                                                    "translate(" + (w_v_loss/2) + " ," +
+                                                                    (h_v_loss + m_v_loss.top + 10) + ")")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Epoch");
+
+                                                            // Add the Y Axis
+                                                            svg_v_loss.append("g")
+                                                                .call(d3.axisLeft(y_v_loss));
+
+                                                            // text label for the y axis
+                                                            svg_v_loss.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - m_v_loss.left)
+                                                                .attr("x",0 - (h_v_loss / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Loss");
+
+                                                            svg_v_loss.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                    <p>Model Performance (<em style="color: black">Original</em>/<em style="color: deepskyblue">Prediction</em>)</p>
+                                                    <div id="v_model_pred"></div>
+                                                    <script>
+                                                        let m_v_pred = {top: 20, right: 20, bottom: 30, left: 60},
+                                                            w_v_pred = 700 - m_v_pred.left - m_v_pred.right,
+                                                            h_v_pred = 400 - m_v_pred.top - m_v_pred.bottom;
+                                                        let x_v_pred = d3.scaleLinear().range([0, w_v_pred]);
+                                                        let y_v_pred = d3.scaleLinear().range([h_v_pred, 0]);
+                                                        // define the 1st line
+                                                        let v1_v_pred = d3.line()
+                                                            .x(function(d) { return x_v_pred(d.Tick); })
+                                                            .y(function(d) { return y_v_pred(d.Orig); });
+
+                                                        // define the 2nd line
+                                                        let v2_v_pred = d3.line()
+                                                            .x(function(d) { return x_v_pred(d.Tick); })
+                                                            .y(function(d) { return y_v_pred(d.Pred); });
+
+                                                        // append the svg obgect to the body of the page
+                                                        // appends a 'group' element to 'svg'
+                                                        // moves the 'group' element to the top left margin
+                                                        let svg_v_pred = d3.select("#v_model_pred").append("svg")
+                                                            .attr("width", w_v_pred + m_v_pred.left + m_v_pred.right)
+                                                            .attr("height", h_v_pred + m_v_pred.top + m_v_pred.bottom)
+                                                            .append("g")
+                                                            .attr("transform",
+                                                                "translate(" + m_v_pred.left + "," + m_v_pred.top + ")");
+
+                                                        // Get the data
+                                                        d3.csv("v_model_pred_data.csv", function(error, data) {
+                                                            if (error) throw error;
+                                                            // format the data
+                                                            data.forEach(function (d) {
+                                                                d.Tick = +d.Tick;
+                                                                d.Orig = +d.Orig;
+                                                                d.Pred = +d.Pred;
+                                                            });
+
+                                                            // Scale the range of the data
+                                                            x_v_pred.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Tick);
+                                                            })]);
+                                                            y_v_pred.domain([0, d3.max(data, function (d) {
+                                                                return Math.max(d.Orig, d.Pred);
+                                                            })]);
+
+                                                            // Add the valueline path.
+                                                            svg_v_pred.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "black")
+                                                                .attr("d", v1_v_pred);
+
+                                                            // Add the valueline2 path.
+                                                            svg_v_pred.append("path")
+                                                                .data([data])
+                                                                .attr("class", "line")
+                                                                .style("stroke", "deepskyblue")
+                                                                .attr("d", v2_v_pred);
+
+                                                            // Add the X Axis
+                                                            svg_v_pred.append("g")
+                                                                .attr("transform", "translate(0," + h_v_pred + ")")
+                                                                .call(d3.axisBottom(x_v_pred));
+
+                                                            // Add the Y Axis
+                                                            svg_v_pred.append("g")
+                                                                .call(d3.axisLeft(y_v_pred));
+
+                                                            // text label for the y axis
+                                                            svg_v_pred.append("text")
+                                                                .attr("transform", "rotate(-90)")
+                                                                .attr("y", 0 - m_v_pred.left)
+                                                                .attr("x",0 - (h_v_pred / 2))
+                                                                .attr("dy", "1em")
+                                                                .style("text-anchor", "middle")
+                                                                .text("Coefficient of Variance");
+
+                                                            svg_v_pred.append("g")
+                                                                .attr("class","legend")
+                                                                .attr("transform","translate(50,30)")
+                                                                .style("font-size","12px");
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <ul>
+                                                    <li>3 concatenated LSTM layers</li>
+                                                    <li>500 epochs</li>
+                                                    <li>A dropout layer was added to prevent over-fitting.</li>
+                                                    <li>Root Mean Squared Error (RMSE): 0.0096</li>
+                                                    <li>Mean Absolute Error (MAE): 0.0071</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+			<script>
+			</script>
+            <section class="colorlib-experience" data-section="next_steps">
+                <div class="colorlib-narrow-content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+                             data-animate-effect="fadeInLeft">
+                            <span class="heading-meta">Next Steps</span>
+                            <h2 class="colorlib-heading animate-box">Alternate Approaches</h2>
+                        </div>
+                    </div>
+                    <!-- Alternate Approaches -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="timeline-centered">
+                                <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-1">
+                                            <i class="icon-pen2"></i>
+                                        </div>
+                                        <div class="timeline-label">
+                                            <h2><a href="#">Training a Naive Bayes Classifier</a></h2>
+                                            <p>Another approach I did not get a chance to fully explore was using a
+                                                Naive Bayes classifier to classify
+                                                articles for their relevance to a specific term or industry. However,
+                                                with this approach, the topics have to be
+                                                relatively narrow. Even still, there could be other factors that impact
+                                                the financial markets as a whole that still
+                                                would matter to specific industries. For instance, headlines detailing a
+                                                trade war between the United States and China
+                                                would still impact the commodities market. To effectively build a
+                                                classifier, multiple layers would be needed, one for
+                                                industry specific events and news and another layer for market-wide news
+                                                or impacts.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-2">
+                                            <i class="icon-pen2"></i>
+                                        </div>
+                                        <div class="timeline-label">
+                                            <h2><a href="#">Adding a BERT Text Classification Layer</a></h2>
+                                            <p>For my current model, another path that I would have liked to have time
+                                                to pursue is to incorporate an additional layer
+                                                of text classification to only take a look at relevant headlines. I know
+                                                that BERT is a very powerful tool to use
+                                                for text classification purposes, and it would be incorporated into a
+                                                pre-processing step which would leave
+                                                only relevant headlines to be processed by the sentiment engine.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-3">
+                                            <i class="icon-pen2"></i>
+                                        </div>
+                                        <div class="timeline-label">
+                                            <h2><a href="#">FLAIR/TextBlob/Sentiment/NewsAPI</a></h2>
+                                            <p>Straight sentiment analysis on complete article text was difficult. In
+                                                the beginning of this project,
+                                                I had originally planned to measure sentiment of entire articles pulled using
+                                                NewsAPI, but that was hindered by faulty parsers that
+                                                would pick up advertisement text in additional to article text.
+                                                Furthermore, sentiment of news articles isn't
+                                                as straightforward as measuring sentiment in a review. It can be rather
+                                                ambiguous, which makes it harder to train.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-none">
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+                             data-animate-effect="fadeInLeft">
+                            <h2 class="colorlib-heading animate-box">Lessons Learned</h2>
+                        </div>
+                    </div>
+                    <!-- Lessons Learned -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="timeline-centered">
+                                <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-1">
+                                            <i class="icon-pen2"></i>
+                                        </div>
+                                        <div class="timeline-label">
+                                            <h2><a href="#">Machine Learning Concepts: NLP</a></h2>
+                                            <p>From this capstone project, I learned a lot about NLP and was very
+                                                interested in some of the latest research and
+                                                different applications of NLP. Financial markets are very hard to model,
+                                                and for a good reason, since if there was
+                                                an extremely efficient model, then that would make life much simpler.
+                                                However, working toward incremental improvements in
+                                                modeling financial markets and identifying relationships is something I
+                                                definitely want to work towards and I feel that NLP
+                                                can be a very powerful tool in that.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-2">
+                                            <i class="icon-pen2"></i>
+                                        </div>
+                                        <div class="timeline-label">
+                                            <h2><a href="#">Data Science: Web Crawling and Data Gathering</a></h2>
+                                            <p>Through this project, I had my first exposure to web crawling and data
+                                                collection. It's something that does not seem to
+                                                be much at face value, but being able to collect data is something
+                                                extremely valuable when moving towards model training
+                                                and data application. I definitely plan to scope out new ways to mine
+                                                and collect my own data.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-none">
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="colorlib-contact" data-section="contact">
+                <div class="colorlib-narrow-content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+                             data-animate-effect="fadeInLeft">
+                            <span class="heading-meta">Get in Touch</span>
+                            <h2 class="colorlib-heading">Contact</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="colorlib-feature colorlib-feature-sm animate-box"
+                                 data-animate-effect="fadeInLeft">
+                                <div class="colorlib-icon">
+                                    <i class="icon-globe-outline"></i>
+                                </div>
+                                <div class="colorlib-text">
+                                    <p><a href="#">alexli1@deloitte.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="colorlib-feature colorlib-feature-sm animate-box"
+                                 data-animate-effect="fadeInLeft">
+                                <div class="colorlib-icon">
+                                    <i class="icon-map"></i>
+                                </div>
+                                <div class="colorlib-text">
+                                    <p>1919 N Lynn St., Arlington VA 22209</p>
+                                </div>
+                            </div>
+
+                            <div class="colorlib-feature colorlib-feature-sm animate-box"
+                                 data-animate-effect="fadeInLeft">
+                                <div class="colorlib-icon">
+                                    <i class="icon-phone"></i>
+                                </div>
+                                <div class="colorlib-text">
+                                    <p><a href="tel://">+571 236 2260</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-md-push-1">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
+                                     data-animate-effect="fadeInRight">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Subject">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="" id="message" cols="30" rows="7" class="form-control"
+                                                      placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary btn-send-message"
+                                                   value="Send Message">
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div><!-- end:colorlib-main -->
+    </div><!-- end:container-wrap -->
+</div><!-- end:colorlib-page -->
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Flexslider -->
+<script src="js/jquery.flexslider-min.js"></script>
+<!-- Owl carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Counters -->
+<script src="js/jquery.countTo.js"></script>
+
+<!-- MAIN JS -->
+<script src="js/main.js"></script>
+
 </body>
 </html>
+
